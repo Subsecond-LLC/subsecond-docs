@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         <meta
             name="description"
-            content="Documentation for the Kittn API"
+            content="Documentation for Subsecond, a structured code modification library."
         >
-    <title>API Reference</title>
+    <title>Subsecond Documentation</title>
 
     <style media="screen">
       .highlight table td { padding: 5px; }
@@ -295,7 +295,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;ts&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -303,12 +303,9 @@
       </span>
     </a>
     <div class="toc-wrapper">
-      <img src="images/logo-1e815a84.png" class="logo" alt="" />
+      <img src="images/logo-657a78d5.png" class="logo" alt="" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="ts">ts</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -316,205 +313,282 @@
         <ul class="search-results"></ul>
       <ul id="toc" class="toc-list-h1">
           <li>
-            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
-          </li>
-          <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting Started">Getting Started</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#1-start-a-new-project" class="toc-h2 toc-link" data-title="1. Start a new project">1. Start a new project</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#2-install-the-library" class="toc-h2 toc-link" data-title="2. Install the library">2. Install the library</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#3-start-writing-code" class="toc-h2 toc-link" data-title="3. Start writing code">3. Start writing code</a>
+                  </li>
+                  <li>
+                    <a href="#a-full-example" class="toc-h2 toc-link" data-title="A full example">A full example</a>
                   </li>
               </ul>
           </li>
           <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+            <a href="#selectors" class="toc-h1 toc-link" data-title="Selectors">Selectors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#the-empty-selector" class="toc-h2 toc-link" data-title="The empty selector">The empty selector</a>
+                  </li>
+                  <li>
+                    <a href="#just-estree-selector" class="toc-h2 toc-link" data-title="Just ESTree selector">Just ESTree selector</a>
+                  </li>
+                  <li>
+                    <a href="#estree-with-name" class="toc-h2 toc-link" data-title="ESTree with name">ESTree with name</a>
+                  </li>
+                  <li>
+                    <a href="#comma-separator" class="toc-h2 toc-link" data-title="Comma Separator">Comma Separator</a>
+                  </li>
+                  <li>
+                    <a href="#space-separator" class="toc-h2 toc-link" data-title="Space Separator">Space Separator</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#utilities" class="toc-h1 toc-link" data-title="Utilities">Utilities</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#s-load-files-object-void" class="toc-h2 toc-link" data-title="S.load(files: Object): void">S.load(files: Object): void</a>
+                  </li>
+                  <li>
+                    <a href="#s-print-object" class="toc-h2 toc-link" data-title="S.print(): Object">S.print(): Object</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#subsecond-functions" class="toc-h1 toc-link" data-title="Subsecond Functions">Subsecond Functions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#s-selector-context-subsecond" class="toc-h2 toc-link" data-title="S(selector, context): Subsecond">S(selector, context): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#type-string" class="toc-h2 toc-link" data-title="type(): string">type(): string</a>
+                  </li>
+                  <li>
+                    <a href="#text-string" class="toc-h2 toc-link" data-title="text(): string">text(): string</a>
+                  </li>
+                  <li>
+                    <a href="#text-newtext-string-subsecond" class="toc-h2 toc-link" data-title="text(newText: string): Subsecond">text(newText: string): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#text-callback-oldtext-string-gt-string-subsecond" class="toc-h2 toc-link" data-title="text(callback: (oldText: string) =&gt; string): Subsecond">text(callback: (oldText: string) =&gt; string): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#name-string" class="toc-h2 toc-link" data-title="name(): string">name(): string</a>
+                  </li>
+                  <li>
+                    <a href="#name-newname-string-subsecond" class="toc-h2 toc-link" data-title="name(newName: string): Subsecond">name(newName: string): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#name-oldname-string-gt-string-subsecond" class="toc-h2 toc-link" data-title="name((oldName: string) =&gt; string)): Subsecond">name((oldName: string) =&gt; string)): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#attr-name-string-any" class="toc-h2 toc-link" data-title="attr(name: string): any">attr(name: string): any</a>
+                  </li>
+                  <li>
+                    <a href="#before-newelement-string-subsecond" class="toc-h2 toc-link" data-title="before(newElement: string): Subsecond">before(newElement: string): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#after-newelement-string-subsecond" class="toc-h2 toc-link" data-title="after(newElement: string): Subsecond">after(newElement: string): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#lines-number" class="toc-h2 toc-link" data-title="lines(): number">lines(): number</a>
+                  </li>
+                  <li>
+                    <a href="#eq-index-number-subsecond" class="toc-h2 toc-link" data-title="eq(index: number): Subsecond">eq(index: number): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#length-number" class="toc-h2 toc-link" data-title="length: number">length: number</a>
+                  </li>
+                  <li>
+                    <a href="#each-callback-element-subsecond-i-number-original-subsecond-gt-void-subsecond" class="toc-h2 toc-link" data-title="each(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; void): Subsecond">each(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; void): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#map-lt-t-gt-callback-element-subsecond-i-number-original-subsecond-gt-t-t" class="toc-h2 toc-link" data-title="map&lt;T&gt;(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; T): T[]">map&lt;T&gt;(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; T): T[]</a>
+                  </li>
+                  <li>
+                    <a href="#filter-callback-element-subsecond-i-number-original-subsecond-gt-boolean-subsecond" class="toc-h2 toc-link" data-title="filter(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; boolean): Subsecond">filter(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; boolean): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#find-selector-string-subsecond" class="toc-h2 toc-link" data-title="find(selector: string): Subsecond">find(selector: string): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#parent-subsecond" class="toc-h2 toc-link" data-title="parent(): Subsecond">parent(): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#parent-generations-number-subsecond" class="toc-h2 toc-link" data-title="parent(generations: number): Subsecond">parent(generations: number): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#parent-selector-string-subsecond" class="toc-h2 toc-link" data-title="parent(selector: string): Subsecond">parent(selector: string): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#children-subsecond" class="toc-h2 toc-link" data-title="children(): Subsecond">children(): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#children-selector-string-subsecond" class="toc-h2 toc-link" data-title="children(selector: string): Subsecond">children(selector: string): Subsecond</a>
+                  </li>
+                  <li>
+                    <a href="#filename-string" class="toc-h2 toc-link" data-title="fileName(): string">fileName(): string</a>
+                  </li>
+                  <li>
+                    <a href="#esnodes-es-tsestree-node" class="toc-h2 toc-link" data-title="esNodes(): es.TSESTree.Node[]">esNodes(): es.TSESTree.Node[]</a>
+                  </li>
+                  <li>
+                    <a href="#tonewfile-filename-string-subsecond" class="toc-h2 toc-link" data-title="toNewFile(fileName: string): Subsecond">toNewFile(fileName: string): Subsecond</a>
+                  </li>
+              </ul>
           </li>
       </ul>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='https://playground.subsecond.app'>Try it out with Subsecond Playground</a></li>
             <li><a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-
-<p>We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
-
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
+        <h1 id='getting-started'>Getting Started</h1><h2 id='1-start-a-new-project'>1. Start a new project</h2>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>A new directory</p>
 </blockquote>
-<div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
+<div class="highlight"><pre class="highlight shell"><code><span class="o">&gt;</span> <span class="nb">mkdir </span>subsecond-example
+<span class="o">&gt;</span> <span class="nb">cd </span>subsecond-example
 </code></pre></div>
 <blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
+<p>Initialize an npm project</p>
 </blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+<div class="highlight"><pre class="highlight shell"><code><span class="o">&gt;</span> npm init
+</code></pre></div><h2 id='2-install-the-library'>2. Install the library</h2>
+<blockquote>
+<p>npm</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell"><code><span class="o">&gt;</span> npm <span class="nb">install </span>subsecond
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>yarn</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<div class="highlight"><pre class="highlight shell"><code><span class="o">&gt;</span> yarn add subsecond
+</code></pre></div><h2 id='3-start-writing-code'>3. Start writing code</h2>
+<blockquote>
+<p>index.js</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="k">import</span> <span class="nx">S</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">subsecond</span><span class="dl">"</span><span class="p">;</span>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">load</span><span class="p">({</span> <span class="dl">"</span><span class="s2">example.js</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">console.log('Hello World!');</span><span class="dl">"</span> <span class="p">});</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Identifier.log</span><span class="dl">"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="dl">"</span><span class="s2">error</span><span class="dl">"</span><span class="p">);</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">S</span><span class="p">.</span><span class="nx">print</span><span class="p">());</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Running this with <code>node index.js</code> results in:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
+  </span><span class="nl">"example.js"</span><span class="p">:</span><span class="w"> </span><span class="s2">"console.error('Hello World');"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>All Subsecond scripts follow the same basic structure:</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<ol>
+<li><code>S.load()</code> all of the code we want to modify.</li>
+<li><code>S()</code> selectors and modification functions like <code>.text()</code> and <code>.before()</code>.</li>
+<li><code>S.print()</code> at the end to output our finished product.</li>
+</ol>
+<h2 id='a-full-example'>A full example</h2><div class="highlight"><pre class="highlight typescript"><code><span class="k">import</span> <span class="nx">S</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">subsecond</span><span class="dl">"</span><span class="p">;</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<span class="kd">const</span> <span class="nx">registerCarJS</span> <span class="o">=</span> <span class="s2">`
+registerCar("Honda", "CR-V", "silver", 2004);
+`</span><span class="p">;</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="p">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="n">kittens</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span> <span class="se">\</span>
-  <span class="nt">-X</span> DELETE <span class="se">\</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">kittn</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">S</span><span class="p">.</span><span class="nx">load</span><span class="p">({</span> <span class="dl">"</span><span class="s2">registerCar.js</span><span class="dl">"</span><span class="p">:</span> <span class="nx">registerCarJS</span> <span class="p">});</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">meowmeowmeow</span><span class="dl">'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression.registerCar</span><span class="dl">"</span><span class="p">).</span><span class="nx">each</span><span class="p">((</span><span class="nx">registerCar</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">carParams</span> <span class="o">=</span> <span class="nx">registerCar</span><span class="p">.</span><span class="nx">children</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">child</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">child</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+
+  <span class="c1">// carParams[0] is the function name itself "registerCar", so skip it.</span>
+  <span class="nx">registerCar</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s2">`
+    registerCar({
+      make: </span><span class="p">${</span><span class="nx">carParams</span><span class="p">[</span><span class="mi">1</span><span class="p">]}</span><span class="s2">,
+      model: </span><span class="p">${</span><span class="nx">carParams</span><span class="p">[</span><span class="mi">2</span><span class="p">]}</span><span class="s2">,
+      color: </span><span class="p">${</span><span class="nx">carParams</span><span class="p">[</span><span class="mi">3</span><span class="p">]}</span><span class="s2">,
+      year: </span><span class="p">${</span><span class="nx">carParams</span><span class="p">[</span><span class="mi">4</span><span class="p">]}</span><span class="s2">,
+    })
+  `</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">S</span><span class="p">.</span><span class="nx">print</span><span class="p">()[</span><span class="dl">"</span><span class="s2">registerCar.js</span><span class="dl">"</span><span class="p">]);</span>
 </code></pre></div>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Running this subsecond script results in the following output:</p>
 </blockquote>
-<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">registerCar</span><span class="p">({</span>
+  <span class="na">make</span><span class="p">:</span> <span class="dl">"</span><span class="s2">Honda</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">model</span><span class="p">:</span> <span class="dl">"</span><span class="s2">CR-V</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">color</span><span class="p">:</span> <span class="dl">"</span><span class="s2">silver</span><span class="dl">"</span><span class="p">,</span>
+  <span class="na">year</span><span class="p">:</span> <span class="mi">2004</span><span class="p">,</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Let&#39;s say you have a function <code>registerCar</code> that takes 4 parameters:</p>
+
+<ul>
+<li>Make</li>
+<li>Model</li>
+<li>Color</li>
+<li>Year</li>
+</ul>
+
+<p>It&#39;s been decided to switch this function to take a single parameter which is an object with each of the four previous parameters as keys.</p>
+
+<p><code>registerCar</code> could potentially be in your codebase hundreds of times. Manually would be annoying, regex get way too complicated.</p>
+
+<p>This is how Subsecond can be used to fix this problem.</p>
+<h1 id='selectors'>Selectors</h1>
+<p>Currently support for selectors is limited, but it will grow soon.</p>
+
+<p>Use https://astexplorer.net/ set to <code>@typescript-eslint/parser</code> to figure out what everything is named.</p>
+<h2 id='the-empty-selector'>The empty selector</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">();</span>
+</code></pre></div>
+<p>Selects the root nodes of all files currently loaded.</p>
+<h2 id='just-estree-selector'>Just ESTree selector</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">FunctionDeclaration</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Selects all nodes of this type across all files</p>
+<h2 id='estree-with-name'>ESTree with name</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">FunctionDeclaration.testFunction</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Selects all nodes with both the type and name</p>
+<h2 id='comma-separator'>Comma Separator</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">FunctionDeclaration, CallExpression</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Select all <code>FunctionDeclaration</code> nodes and <code>CallExpression</code> nodes.</p>
+<h2 id='space-separator'>Space Separator</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">ExpressionStatement Literal</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Select only <code>Literal</code> nodes that have some ancestor <code>ExpressionStatement</code> node.</p>
+<h1 id='utilities'>Utilities</h1><h2 id='s-load-files-object-void'>S.load(files: Object): void</h2>
+<blockquote>
+<p>Load in a single line of code as <code>index.ts</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">.</span><span class="nx">load</span><span class="p">({</span> <span class="dl">"</span><span class="s2">index.ts</span><span class="dl">"</span><span class="p">:</span> <span class="dl">"</span><span class="s2">console.log('Hello World!');</span><span class="dl">"</span> <span class="p">});</span>
+</code></pre></div>
+<blockquote>
+<p>More commonly, use node&#39;s <code>fs</code> library to load in code files.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="k">import</span> <span class="p">{</span> <span class="nx">readdirSync</span><span class="p">,</span> <span class="nx">readFileSync</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">fs</span><span class="dl">"</span><span class="p">;</span>
+
+<span class="kd">const</span> <span class="nx">files</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">fromEntries</span><span class="p">(</span>
+  <span class="nx">readdirSync</span><span class="p">(</span><span class="dl">"</span><span class="s2">../src</span><span class="dl">"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">fileName</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">fileName</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="dl">"</span><span class="s2">.ts</span><span class="dl">"</span><span class="p">)</span> <span class="o">||</span> <span class="nx">fileName</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="dl">"</span><span class="s2">.tsx</span><span class="dl">"</span><span class="p">))</span>
+    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">fileName</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="nx">fileName</span><span class="p">,</span> <span class="nx">readFileSync</span><span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="dl">"</span><span class="s2">utf8</span><span class="dl">"</span><span class="p">)])</span>
+<span class="p">);</span>
+
+<span class="nx">S</span><span class="p">.</span><span class="nx">load</span><span class="p">(</span><span class="nx">files</span><span class="p">);</span>
+</code></pre></div>
+<p>Load typescript files into the Subsecond object.</p>
+
+<p>Multiple calls to <code>S.load()</code> will add additional files without deleting any already added files. Files the the same name be overwritten with subsequent calls to <code>S.load()</code>.</p>
+
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -522,76 +596,652 @@ Remember — a happy kitten is an authenticated kitten!
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
+<td><code>files</code></td>
+<td><code>Object</code> with file names as keys and code as a string as the values.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td><code>void</code></td>
 </tr>
 </tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h2 id='s-print-object'>S.print(): Object</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">Subsecond</span><span class="p">.</span><span class="nx">print</span><span class="p">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"index.ts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"console.log('Hello World!')"</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>returns modified files in the same</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Parameter</th>
+<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Output</td>
+<td>An Object with keys and values arranged in the same way as <code>S.load()</code>.</td>
+</tr>
+</tbody></table>
+<h1 id='subsecond-functions'>Subsecond Functions</h1><h2 id='s-selector-context-subsecond'>S(selector, context): Subsecond</h2>
+<p>Select a list of nodes using the selector syntax seen above in the Selector section.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>selector</code></td>
+<td><code>string</code> using Subsecond&#39;s selector syntax</td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td><code>context</code></td>
+<td>Optional. A Subsecond object to use instead of the default <code>files</code> to apply the selector to.</td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Output</td>
+<td>A Subsecond object containing all of the elements selected by by the selector and context pair.</td>
+</tr>
+</tbody></table>
+<h2 id='type-string'>type(): string</h2>
+<p>Returns the <a href="https://github.com/estree/estree">estree spec</a> type of currently selected node.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Output</td>
+<td>The estree type as a string. (ex. &quot;Identifier&quot;)</td>
+</tr>
+</tbody></table>
+<h2 id='text-string'>text(): string</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">.</span><span class="nx">load</span><span class="p">({</span> <span class="dl">"</span><span class="s2">index.ts</span><span class="dl">"</span><span class="p">:</span> <span class="dl">'</span><span class="s1">console.log("Hello World!");</span><span class="dl">'</span> <span class="p">});</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression</span><span class="dl">"</span><span class="p">).</span><span class="nx">text</span><span class="p">());</span>
+</code></pre></div>
+<blockquote>
+<p>Running this would produce the following result:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Hello World!</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Get the full text of the selected elements as a string.</p>
+
+<p>If multiple elements are selected, they are all concatenated together and returned as a string.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>Output</td>
+<td>A string of code of the selected elements.</td>
+</tr>
+</tbody></table>
+<h2 id='text-newtext-string-subsecond'>text(newText: string): Subsecond</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression</span><span class="dl">"</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="dl">"</span><span class="s2">console.log('something else!')</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Replace each of the currently selected elements with <code>newText</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>newText</code></td>
+<td>The <code>string</code> to replace existing elements with.</td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> that contains all of the newly created elements.</td>
+</tr>
+</tbody></table>
+<h2 id='text-callback-oldtext-string-gt-string-subsecond'>text(callback: (oldText: string) =&gt; string): Subsecond</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>callback</code></td>
+<td>This function takes no parameters.</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
+<td><code>oldText</code></td>
+<td>The existing string of code that will be replaced by the callback.</td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> that contains all of the newly created elements.</td>
+</tr>
+</tbody></table>
+<h2 id='name-string'>name(): string</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression</span><span class="dl">"</span><span class="p">).</span><span class="nx">name</span><span class="p">();</span>
+<span class="c1">// console.log</span>
+</code></pre></div>
+<p>return the names of all currently selected nodes.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>Output</td>
+<td>A string of code of the selected elements.</td>
+</tr>
+</tbody></table>
+<h2 id='name-newname-string-subsecond'>name(newName: string): Subsecond</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression</span><span class="dl">"</span><span class="p">).</span><span class="nx">name</span><span class="p">((</span><span class="nx">oldName</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">oldName</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="dl">""</span><span class="p">).</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">join</span><span class="p">(</span><span class="dl">""</span><span class="p">));</span>
+<span class="c1">// gol.elosnoc('Hello World!');</span>
+</code></pre></div>
+<p>Change the names of all currently selected nodes.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>newName</code></td>
+<td>The <code>string</code> to replace existing elements with.</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> that contains all of the newly created elements.</td>
+</tr>
+</tbody></table>
+<h2 id='name-oldname-string-gt-string-subsecond'>name((oldName: string) =&gt; string)): Subsecond</h2>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>callback</code></td>
+<td>This function takes no parameters.</td>
+</tr>
+<tr>
+<td><code>oldName</code></td>
+<td>The existing string of code that will be replaced by the callback.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> that contains all of the newly created elements.</td>
+</tr>
+</tbody></table>
+<h2 id='attr-name-string-any'>attr(name: string): any</h2>
+<blockquote>
+<p>Check if an object property is using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Method_definitions">method definition syntax</a></p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Property</span><span class="dl">"</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="dl">"</span><span class="s2">method</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Get any attribute exposed from <code>@typescript-eslint/typescript-estree</code> on a selected node.</p>
+
+<p>If multiple elements are selected this function will only return the first elements response.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>name</code></td>
+<td>The name of the attribute to return.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Returns the type of the attribute from estree or undefined if it doesn&#39;t exist.</td>
+</tr>
+</tbody></table>
+<h2 id='before-newelement-string-subsecond'>before(newElement: string): Subsecond</h2>
+<blockquote>
+<p>Insert an import at the top of the page</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Program</span><span class="dl">"</span><span class="p">).</span><span class="nx">children</span><span class="p">().</span><span class="nx">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">).</span><span class="nx">before</span><span class="p">(</span><span class="dl">"</span><span class="s2">import S from 'subsecond';</span><span class="se">\n</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Insert an element directly before each currently selected element.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>newElement</code></td>
+<td>A string of code.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subecond <code>Object</code> containing the newly created elements.</td>
+</tr>
+</tbody></table>
+<h2 id='after-newelement-string-subsecond'>after(newElement: string): Subsecond</h2>
+<blockquote>
+<p>Console log every variable after it is defined</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">VariableDeclarator</span><span class="dl">"</span><span class="p">).</span><span class="nx">each</span><span class="p">((</span><span class="nx">declarator</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">declarator</span><span class="p">.</span><span class="nx">parent</span><span class="p">().</span><span class="nx">after</span><span class="p">(</span><span class="s2">`console.log(</span><span class="p">${</span><span class="nx">declarator</span><span class="p">.</span><span class="nx">name</span><span class="p">()}</span><span class="s2">);`</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>Insert an element directly after each currently selected element.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>newElement</code></td>
+<td>A string of code.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subecond <code>Object</code> containing the newly created elements.</td>
+</tr>
+</tbody></table>
+<h2 id='lines-number'>lines(): number</h2>
+<blockquote>
+<p>Get an array of lines of code for every function block.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">FunctionDeclaration Block</span><span class="dl">"</span><span class="p">).</span><span class="nx">map</span><span class="p">((</span><span class="nx">block</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">block</span><span class="p">.</span><span class="nx">lines</span><span class="p">());</span>
+</code></pre></div>
+<p>The total number of lines taken up by selected elements. Elements with overlapping lines are only counted once.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>The number of lines of code spanned by the selected elements.</td>
+</tr>
+</tbody></table>
+<h2 id='eq-index-number-subsecond'>eq(index: number): Subsecond</h2>
+<blockquote>
+<p>Get the first parameter for each time function fn is called</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression.fn</span><span class="dl">"</span><span class="p">).</span><span class="nx">map</span><span class="p">((</span><span class="nx">expression</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">expression</span><span class="p">.</span><span class="nx">children</span><span class="p">().</span><span class="nx">eq</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+</code></pre></div>
+<p>Select a specific numbered index.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>index</code></td>
+<td>Number. The specific index to select.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> containing the one selected element.</td>
+</tr>
+</tbody></table>
+<h2 id='length-number'>length: number</h2>
+<blockquote>
+<p>Return how many times console log is called.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression.console.log</span><span class="dl">"</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+</code></pre></div>
+<p>The amount elements selected by the current Subsecond object.</p>
+
+<p>Important note this is a property and not a function.</p>
+<h2 id='each-callback-element-subsecond-i-number-original-subsecond-gt-void-subsecond'>each(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; void): Subsecond</h2><div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Identifier</span><span class="dl">"</span><span class="p">).</span><span class="nx">each</span><span class="p">((</span><span class="nx">id</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">id</span><span class="p">.</span><span class="nx">text</span><span class="p">()));</span>
+</code></pre></div>
+<p>Define a callback function to be executed on each selected element individually.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>callback</code></td>
+<td>A function to executed for each selected element.</td>
+</tr>
+<tr>
+<td><code>element</code></td>
+<td>The individual element in it&#39;s own Subsecond object</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>The numbered index of the current <code>element</code>.</td>
+</tr>
+<tr>
+<td><code>original</code></td>
+<td>A copy of the unmodified Subsecond object.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Returns the unmodified Subsecond object.</td>
+</tr>
+</tbody></table>
+<h2 id='map-lt-t-gt-callback-element-subsecond-i-number-original-subsecond-gt-t-t'>map&lt;T&gt;(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; T): T[]</h2>
+<blockquote>
+<p>Return an array with each Identifier string in the code</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Identifier</span><span class="dl">"</span><span class="p">).</span><span class="nx">map</span><span class="p">((</span><span class="nx">id</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">id</span><span class="p">.</span><span class="nx">text</span><span class="p">());</span>
+</code></pre></div>
+<p>Transform each selected element and return all results in an array.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>callback</code></td>
+<td>A function to executed for each selected element.</td>
+</tr>
+<tr>
+<td><code>element</code></td>
+<td>The individual element in it&#39;s own Subsecond object</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>The numbered index of the current <code>element</code>.</td>
+</tr>
+<tr>
+<td><code>original</code></td>
+<td>A copy of the unmodified Subsecond object.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>An array containing everything that was returned by <code>callback</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='filter-callback-element-subsecond-i-number-original-subsecond-gt-boolean-subsecond'>filter(callback: (element: Subsecond, i: number, original: Subsecond) =&gt; boolean): Subsecond</h2>
+<blockquote>
+<p>Filter all functions that are longer than 10 lines long</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">FunctionDefinition</span><span class="dl">"</span><span class="p">).</span><span class="nx">filter</span><span class="p">((</span><span class="nx">fn</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">lines</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">);</span>
+</code></pre></div>
+<p>Define a callback function that returns true or false for if the element should be in the resulting array.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>callback</code></td>
+<td>A function to executed for each selected element.</td>
+</tr>
+<tr>
+<td><code>element</code></td>
+<td>The individual element in it&#39;s own Subsecond object</td>
+</tr>
+<tr>
+<td><code>i</code></td>
+<td>The numbered index of the current <code>element</code>.</td>
+</tr>
+<tr>
+<td><code>original</code></td>
+<td>A copy of the unmodified Subsecond object.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Returns a Subsecond object containing each element who&#39;s callback function returned <code>true</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='find-selector-string-subsecond'>find(selector: string): Subsecond</h2>
+<blockquote>
+<p>All three of these methods are identical</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">VariableDeclaration</span><span class="dl">"</span><span class="p">).</span><span class="nx">find</span><span class="p">(</span><span class="dl">"</span><span class="s2">Property</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Property</span><span class="dl">"</span><span class="p">,</span> <span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">VariableDeclaration</span><span class="dl">"</span><span class="p">));</span>
+
+<span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">VariableDeclaration Property</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Query selector on an array of previously selected elements.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>selector</code></td>
+<td>See above selector syntax.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> containing the selected elements.</td>
+</tr>
+</tbody></table>
+<h2 id='parent-subsecond'>parent(): Subsecond</h2>
+<blockquote>
+<p>Go back one generation</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Property</span><span class="dl">"</span><span class="p">).</span><span class="nx">parent</span><span class="p">();</span>
+</code></pre></div>
+<p>Select the parent element of each of the currently selected elements.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> containing parent elements of the original elements.</td>
+</tr>
+</tbody></table>
+<h2 id='parent-generations-number-subsecond'>parent(generations: number): Subsecond</h2>
+<blockquote>
+<p>Go back 3 generations</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Property</span><span class="dl">"</span><span class="p">).</span><span class="nx">parent</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div>
+<p>Go back a specific number of generations for each of the currently selected elements.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>generations</code></td>
+<td>The number of generations to go back.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> containing ancestor elements of the original elements.</td>
+</tr>
+</tbody></table>
+<h2 id='parent-selector-string-subsecond'>parent(selector: string): Subsecond</h2>
+<blockquote>
+<p>Find the nearest VariableDeclaration parent for each Property element.</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">Property</span><span class="dl">"</span><span class="p">).</span><span class="nx">parent</span><span class="p">(</span><span class="dl">"</span><span class="s2">VariableDeclaration</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Go back generations until a selector is satisfied.</p>
+
+<p>If an element doesn&#39;t have an ancestor that fufills the selector, nothing is returned for that element.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>selector</code></td>
+<td>String selector, see above for selector syntax.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> containing parent elements of the original elements.</td>
+</tr>
+</tbody></table>
+<h2 id='children-subsecond'>children(): Subsecond</h2>
+<blockquote>
+<p>Select the function name and parameters for function <code>test()</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression.test</span><span class="dl">"</span><span class="p">).</span><span class="nx">children</span><span class="p">();</span>
+</code></pre></div>
+<p>Selects only the immidate next generation children for each currently selected node.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> containing child elements of the original elements.</td>
+</tr>
+</tbody></table>
+<h2 id='children-selector-string-subsecond'>children(selector: string): Subsecond</h2>
+<blockquote>
+<p>Select the Literal function parameters for the function <code>test()</code></p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">CallExpression.test</span><span class="dl">"</span><span class="p">).</span><span class="nx">children</span><span class="p">(</span><span class="dl">"</span><span class="s2">Literal</span><span class="dl">"</span><span class="p">);</span>
+</code></pre></div>
+<p>Selects only the immidate next generation children for each currently selected node. Filters children nodes with selector syntax.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>selector</code></td>
+<td>Selector string. See above for more information about selector syntax.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> containing selected child elements of the original elements.</td>
+</tr>
+</tbody></table>
+<h2 id='filename-string'>fileName(): string</h2>
+<blockquote>
+<p>Get the file names of every file loaded</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">().</span><span class="nx">map</span><span class="p">((</span><span class="nx">root</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">root</span><span class="p">.</span><span class="nx">fileName</span><span class="p">());</span>
+</code></pre></div>
+<p>Get the fileName associated with the currently selected element.</p>
+
+<p>If multiple elements are selected, this function only returns the file name of the first element.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>String. the filename as set by <code>S.load()</code> or <code>toNewFile()</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='esnodes-es-tsestree-node'>esNodes(): es.TSESTree.Node[]</h2>
+<p>Eject out of Subsecond to the current underlying array of nodes from <code>@typescript-eslint/typescript-estree</code>.</p>
+
+<p>Only do this if you know what you are doing.
+Elements are passed by reference by default.
+It is very easy to break stuff when dealing with these nodes directly.
+If you find yourself commonly using this function, please file an issue with a feature request for a new use case.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>N\A</td>
+<td>This function takes no parameters.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>An array of ESTree node objects. The objects have varied structure depending on type.</td>
+</tr>
+</tbody></table>
+<h2 id='tonewfile-filename-string-subsecond'>toNewFile(fileName: string): Subsecond</h2>
+<blockquote>
+<p>Move all function declarations longer than 10 lines to their own files</p>
+</blockquote>
+<div class="highlight"><pre class="highlight typescript"><code><span class="nx">S</span><span class="p">(</span><span class="dl">"</span><span class="s2">FunctionDeclaration</span><span class="dl">"</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">fn</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">lines</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">each</span><span class="p">((</span><span class="nx">fn</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">toNewFile</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="nx">fn</span><span class="p">.</span><span class="nx">name</span><span class="p">()}</span><span class="s2">.ts`</span><span class="p">));</span>
+</code></pre></div>
+<p>Move currently selected nodes to a new file.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>fileName</code></td>
+<td>String name of new file to create.</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>A Subsecond <code>Object</code> containing the root of the newly created file.</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="ts">ts</a>
           </div>
       </div>
     </div>
